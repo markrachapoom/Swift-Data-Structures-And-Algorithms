@@ -95,12 +95,13 @@ class UnitTester: XCTestCase {
                 truthValue = recursiveBinarySearch(targets[i], from: testCases[i])
             }
             
-            
             if truthValue {
                 print("✅ Number \(targets[i]) exists in \(testCases[i])")
             } else {
                 print("❌ Number \(targets[i]) does not exist in \(testCases[i])")
             }
+            
+            XCTAssertTrue(truthValue, "Pass the test")
             
         }
     }

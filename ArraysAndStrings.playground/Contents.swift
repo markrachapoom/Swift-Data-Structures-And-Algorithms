@@ -53,39 +53,39 @@ import Foundation
  Hints:#92, #110
  */
 
-func getCompressedString(from string: String) -> String {
-
-
-    // loop each slide of similar characters with count
-    var count: Int = 1
-    var index: String.Index = string.index(string.startIndex, offsetBy: 0) // first char
-
-    var table: [Character:Int] = [:]
-
-    for char in string {
-
-        var nextIndex: String.Index = string.index(after: index)
-
-        if string[index] == string[nextIndex] {
-            count += 1
-        } else {
-            count = 0
-            table.updateValue(count, forKey: char)
-        }
-    }
-
-    // compress and return string
-    var compressedString: String = ""
-    for (key, value) in table.enumerated() {
-        compressedString.append(String(key))
-        compressedString.append(String(value))
-    }
-
-
-    return compressedString
-}
-
-print(getCompressedString(from: "aabcccccaaa"))
+//func getCompressedString(from string: String) -> String {
+//
+//
+//    // loop each slide of similar characters with count
+//    var count: Int = 1
+//    var index: String.Index = string.index(string.startIndex, offsetBy: 0) // first char
+//
+//    var table: [Character:Int] = [:]
+//
+//    for char in string {
+//
+//        var nextIndex: String.Index = string.index(after: index)
+//
+//        if string[index] == string[nextIndex] {
+//            count += 1
+//        } else {
+//            count = 0
+//            table.updateValue(count, forKey: char)
+//        }
+//    }
+//
+//    // compress and return string
+//    var compressedString: String = ""
+//    for (key, value) in table.enumerated() {
+//        compressedString.append(String(key))
+//        compressedString.append(String(value))
+//    }
+//
+//
+//    return compressedString
+//}
+//
+//print(getCompressedString(from: "aabcccccaaa"))
 
 
 

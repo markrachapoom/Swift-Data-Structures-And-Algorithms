@@ -12,31 +12,27 @@
  Hints:#106,#121,#134,#136
  */
 
+// t a c o c a t
+// 1 2 3 4 5 6 7
+// check in pairs 1,7        2, 6        3, 5    left out
+// 3 times, that's length / 2
+
 func isPalindrome(string: String) -> Bool {
-
-    guard string.isEmpty == false else { return false }
-
-    // tac o cat
-    // check in pairs
-    var leftIndex: String.Index = string.index(string.startIndex, offsetBy: 0) // first element
-    var rightIndex: String.Index = string.index(string.endIndex, offsetBy: -1) // before nil
     
-    for _ in 1...(string.count / 2) {
-        
-        print("Comparing \(string[leftIndex]) and \(string[rightIndex])")
-
-        if string[leftIndex] != string[rightIndex] {
-            return false
-        }
-        
+    guard string.isEmpty == false else { return false }
+    
+    var leftIndex: String.Index = string.index(string.startIndex, offsetBy: 0) // start
+    var rightIndex: String.Index = string.index(string.endIndex, offsetBy: -1) // end
+    
+    for _ in 0..<(string.count / 2) {
+        if string[leftIndex] != string[rightIndex] { return false }
         leftIndex = string.index(after: leftIndex)
         rightIndex = string.index(before: rightIndex)
-    }
-
+    }//: LOOP
+    
     return true
 }
 
-var palindromeString = "tcact"
-var isPalindrome: Bool = isPalindrome(string: palindromeString)
-print("Is \(palindromeString) palindrome: \(isPalindrome)")
+print(isPalindrome(string: "tacocat")) // true
+print(isPalindrome(string: "hello")) // false
 
